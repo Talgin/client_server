@@ -1,0 +1,10 @@
+import face_model
+import argparse
+import cv2
+import sys
+import numpy as np
+
+parser = argparse.ArgumentParser(description='Extracting image embeddings')
+
+parser.add_argument('--image-size', default='112,112', help='')
+parser.add_argument你最后验证结果怎么样呀
