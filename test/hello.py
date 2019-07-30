@@ -7,5 +7,5 @@ args = parser.parse_args()
 
 name = args.namez
 
-print('Hello ', name)
+print('Hello ' + name)
 
