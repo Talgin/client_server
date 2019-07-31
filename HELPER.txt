@@ -1,0 +1,11 @@
+# testing mxnet installation with gpu
+import mxnet as mx; a = mx.nd.ones((2,3), mx.gpu(0)); print((a*2).asnumpy())
+
+# runnning feature extracting code
+python extractor.py --features-file /comp/client_server/features_client.json --image /comp/client_server/Alibek_Datbayev_0001.png
+
+# running docker container with extractor code
+sudo docker run --runtime=nvidia -ti --rm -w /comp/client_server mxnet/python:gpu python extractor.py --features-file /comp/client_server/features_client.json --image /comp/client_server/Alibek_Datbayev_0001.png
+
+# running docker container with comparator code
+sudo docker run --runtime=nvidia -ti --rm -w /comp/client_server mxnet/python:gpu python comparator.py --client-features /comp/client_server/features_client.json --server-features /comp/client_server/features_server.json --model /comp/client_server/models/model-r100-ii/model,0

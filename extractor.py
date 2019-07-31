@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser(description='Extracting input image features')
 #general
 parser.add_argument('--image-size', default='112,112', help='Image size in pixels')
 # parser.add_argument('--model', default='/home/ti/Downloads/insightface/deploy/models/model-r100-ii/model,0', help='path to load model.') 
-parser.add_argument('--features-file', default='', help='Give the extracted 512d features from client')
+parser.add_argument('--features-file', default='', help='Save features to some output file')
 parser.add_argument('--image', default='Alibek_Datbayev_0003.png', help='Give the path to an image')
 parser.add_argument('--model', default='/home/ti/Downloads/SERVER_CODE/models/kaz/model,0', help='path to load model.')
 parser.add_argument('--ga-model', default='', help='path to load model.')

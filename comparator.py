@@ -7,7 +7,7 @@ import json, ast
 import codecs
 
 parser = argparse.ArgumentParser(description='face model test')
-#general
+# general
 parser.add_argument('--image-size', default='112,112', help='Image size in pixels: WxH')
 # parser.add_argument('--model', default='/home/ti/Downloads/insightface/deploy/models/model-r100-ii/model,0', help='path to load model.') 
 parser.add_argument('--client-features', default='', help='Give the extracted 512d features from client')
@@ -25,14 +25,9 @@ print(client_f)
 print(server_f)
 # Loading feature from json file - client side
 try:
-#	with open(client_f) as read_file:
-#		data = json.load(read_file)		
-#		data = np.array(data['person'][0]['features'])
-#		arr.append(data)
 	file = codecs.open(client_f, 'r', encoding='utf-8').read()
-	data = json.loads(file)
-	client = np.array(data['person'][0]['features'])
-	# print(client)
+	data0 = json.loads(file)
+	client = np.array(data0['person'][0]['features'])
 except:
 	print('Cannot open specified file, please check the path')
 # Loading feature from json file - server side
@@ -40,9 +35,8 @@ except:
 # server architecture and how we gonna take features from DB
 try:
 	file = codecs.open(server_f, 'r', encoding='utf-8').read()
-	data = json.loads(file)
-	server = np.array(data['person'][0]['features'])
-	# print(server)
+	data1 = json.loads(file)
+	server = np.array(data1['person'][0]['features'])
 except:
 	print('Cannot open specified file, please check the path')
 
